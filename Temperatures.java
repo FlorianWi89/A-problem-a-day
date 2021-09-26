@@ -7,6 +7,21 @@ public class Temperatures {
     // If there is no future day for which this is possible, keep answer[i] == 0
     // instead.
 
+    // very naive approach which takes O(N^2) time
+    public int[] dailyTempsNaive(int[] temps) {
+        int n = temps.length;
+        int[] answer = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (temps[j] > temps[i]) {
+                    answer[i] = j - i;
+                }
+            }
+        }
+        return answer;
+    }
+
     // O(n) because every index will only pushed once onto the stack
     public int[] dailyTemps(int[] temps) {
         int n = temps.length;
