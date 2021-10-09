@@ -2,7 +2,7 @@
 
 // Return the running sum of nums.
 
-class Solution {
+class Running_Sum_of_1D_Array {
     public static int[] runningSum(int[] nums) {
 
         int currentSum = nums[0];
