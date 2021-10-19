@@ -1,34 +1,15 @@
 class Solution {
 
-    class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
+    public int maxDepth(TreeNode root) {
+        int rootDepth = 1;
+        if (root == null)
+            return 0;
 
-        TreeNode() {
-        }
+        int rightST = maxDepth(root.right);
+        int leftST = maxDepth(root.left);
 
-        TreeNode(int val) {
-            this.val = val;
-        }
+        int max = Math.max(rightST, leftST);
 
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-
-        public int maxDepth(TreeNode root) {
-            int rootDepth = 1;
-            if (root == null)
-                return 0;
-
-            int rightST = maxDepth(root.right);
-            int leftST = maxDepth(root.left);
-
-            int max = Math.max(rightST, leftST);
-
-            return max + rootDepth;
-        }
+        return max + rootDepth;
     }
 }
